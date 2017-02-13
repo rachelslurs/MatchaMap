@@ -4,8 +4,8 @@
 
         options = options || {};
 
-        this.recordName = options.recordName || "result"; //for showing a count of results
-        this.recordNamePlural = options.recordNamePlural || "results";
+        this.recordName = options.recordName || "matcha spot"; //for showing a count of results
+        this.recordNamePlural = options.recordNamePlural || "matcha spots";
         this.searchRadius = options.searchRadius || 805; //in meters ~ 1/2 mile
 
         // the encrypted Table ID of your Fusion Table (found under File => About)
@@ -281,9 +281,11 @@
             styleId: 2,
             templateId: 2
         });
+        console.log(self.searchrecords);
         self.fusionTable = self.searchrecords;
         self.searchrecords.setMap(map);
         self.getCount(whereClause);
+        self.getList(whereClause);
     };
 
 
@@ -327,6 +329,9 @@
                             title: address
                         });
                     }
+                    else {
+                      self.addrMarker = new google.maps.MarkerImage('images/matcha.png');
+                    }
                     var geoCondition = " AND ST_INTERSECTS(" + self.locationColumn + ", CIRCLE(LATLNG" + self.currentPinpoint.toString() + "," + self.searchRadius + "))";
                     callback(geoCondition);
                     self.drawSearchRadiusCircle(self.currentPinpoint);
@@ -348,6 +353,13 @@
         self.whereClause = self.locationColumn + " not equal to ''";
 
         //-----custom filters-----
+        var features_column = "type";
+        var searchType = features_column + " IN (-1,";
+        if ( $("#drinks").is(':checked')) searchType += "1,";
+        if ( $("#baked").is(':checked')) searchType += "2,";
+        console.log(searchType);
+        self.whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
+        console.log(self.whereClause);
         //-----end of custom filters-----
 
         self.getgeoCondition(address, function (geoCondition) {
@@ -464,6 +476,8 @@
             where: whereClause
         }, function (json) {
             self.displaySearchCount(json);
+            console.log(json);
+            console.log(whereClause);
         });
     };
 
@@ -483,6 +497,50 @@
         });
         $("#result_box").fadeIn();
     };
+    MapsLib.prototype.getList = function(whereClause) {
+    var self = this;
+    var selectColumns = 'name, placeid ';
+
+    self.query({
+      select: selectColumns,
+      where: whereClause
+    }, function(response) {
+      self.displayList(response);
+    });
+  };
+
+  MapsLib.prototype.displayList = function(json) {
+    var self = this;
+
+    var data = json['rows'];
+    var template = '';
+
+    var results = $('#results_list');
+    results.hide().empty(); //hide the existing list and empty it out first
+
+    if (data == null) {
+      //clear results list
+      results.append("<li><span class='lead'>No results found</span></li>");
+    }
+    else {
+      for (var row in data) {
+        template = "\
+          <div class='row-fluid item-list'>\
+            <div class='span12'>\
+              <strong>" + data[row][0] + "</strong>\
+              <br />\
+              " + data[row][1] + "\
+              <br />\
+              " + data[row][2] + "\
+              <br />\
+              " + data[row][3] + "\
+            </div>\
+          </div>";
+        results.append(template);
+      }
+    }
+    results.fadeIn();
+  };
 
     MapsLib.prototype.addCommas = function (nStr) {
         nStr += '';
