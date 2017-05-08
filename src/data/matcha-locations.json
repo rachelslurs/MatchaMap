@@ -1,0 +1,113 @@
+[{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [40.7038464, -73.9869969]
+  },
+  "properties": {
+    "drinks": true,
+    "baked-goods": true,
+    "wifi": true,
+    "description": "art gallery with cafe in the back",
+    "title": "Cafe Usagi",
+    "image": "mazama.jpg",
+    "url": "http://www.usaginy.com/cafe",
+    "marker-size": "small"
+  }
+}, {
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [40.74003, -74.0037885]
+  },
+  "properties": {
+    "drinks": true,
+    "baked-goods": true,
+    "wifi": true,
+    "description": "matcha focused cafe serving up both traditional and innovative matcha creations",
+    "title": "MatchaBar Chelsea",
+    "url": "https://matchabarnyc.com",
+    "image": "matchabar.png",
+    "marker-size": "small"
+  }
+}, {
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [40.7201658, -73.9965629]
+  },
+  "properties": {
+    "drinks": true,
+    "baked-goods": false,
+    "wifi": true,
+    "description": "trendy yogurt shop serving delicious iced matchas and lattes",
+    "title": "Greecologies",
+    "url": "https://www.fs.usda.gov/recarea/rogue-siskiyou/recreation/ohv/recarea/?recid=69764&actid=29",
+    "image": "huckleberry.jpg",
+    "marker-size": "small"
+  }
+}, {
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [40.7200825, -73.9985752]
+  },
+  "properties": {
+    "drinks": true,
+    "baked-goods": false,
+    "wifi": true,
+    "description": "Serving matcha drinks and frozen yogurt",
+    "title": "Cha Cha Matcha",
+    "url": "https://chachamatcha.com",
+    "image": "chacha.png",
+    "marker-size": "small"
+  }
+}, {
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [40.6865876, -73.9746662]
+  },
+  "properties": {
+    "drinks": true,
+    "baked-goods": false,
+    "wifi": true,
+    "description": "Spacious coffee shop to work with matcha lattes made using teapigs matcha",
+    "title": "The Annex",
+    "url": "http://www.greenegrape.com/annex/",
+    "image": "annex.jpg",
+    "marker-size": "small"
+  }
+}, {
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [40.700785,-73.988423]
+  },
+  "properties": {
+    "drinks": true,
+    "baked-goods": false,
+    "wifi": true,
+    "description": "matcha lattes made with house of matcha",
+    "title": "Bluestone Lane",
+    "url": "https://www.bluestonelaneny.com",
+    "image": "bsl.png",
+    "marker-size": "small"
+  }
+}, {
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [40.7138634,-74.0083967]
+  },
+  "properties": {
+    "drinks": true,
+    "baked-goods": true,
+    "wifi": false,
+    "description": "Lots of matcha desserts here",
+    "title": "Takahachi Bakery",
+    "url": "http://takahachibakery.com",
+    "image": "takahachi.jpg",
+    "marker-size": "small"
+  }
+}]
