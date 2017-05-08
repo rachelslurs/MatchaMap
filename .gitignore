@@ -1,3 +1,15 @@
-_site/
-.sass-cache/
-bower_components/
+# dependencies
+node_modules
+
+# testing
+coverage
+
+# production
+build
+
+# misc
+.DS_Store
+.env
+npm-debug.log
+
+src/config.js
