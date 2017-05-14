@@ -10,11 +10,7 @@ export class MatchaFilterApp extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div>
-          <h1>MatchaMap</h1>
-        </div>
-        <br></br>
+			<div>
         <MatchaFilterList {...this.props}/>
         <br></br>
         <MatchaMapContainer {...this.props} />

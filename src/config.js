@@ -1,3 +1,3 @@
 export function getGoogleKey() {
-  return "INSERTKEYHERE"
+  return "AIzaSyBz-PTWI74nzmdENcS3pTQ2h8zV1KrSILM"
 }

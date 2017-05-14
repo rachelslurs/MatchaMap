@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import * as config from '../config'
 import GoogleApiComponent from '../GoogleApiComponent'
 import MatchaMap from '../components/MatchaMap'
@@ -6,7 +6,16 @@ import {Marker} from '../components/Marker'
 import {InfoWindow} from '../components/InfoWindow'
 
 export class MatchaMapContainer extends Component {
+	state = {
+    checked: false,
+    disabled: false,
+    indeterminate: false,
+    changeEventCount: 0
+  }
+
   render() {
+		
+    const {checked, disabled, indeterminate, status, changeEventCount} = this.state;
     return (
       <div>
       <MatchaMap google={this.props.google}>
